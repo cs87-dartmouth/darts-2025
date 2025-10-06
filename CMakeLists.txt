@@ -20,45 +20,6 @@ list(
   APPEND
   darts_lib_SOURCES
   # cmake-format: off
-  # Additional files for PA2 below
-  include/darts/box.h
-  include/darts/mesh.h
-  include/darts/triangle.h
-  src/surfaces/bbh.cpp
-  src/surfaces/mesh.cpp
-  src/surfaces/triangle.cpp
-  src/tests/intersection_test.cpp
-  # Additional files for PA1 below
-  include/darts/camera.h
-  include/darts/factory.h
-  include/darts/json.h
-  include/darts/material.h
-  include/darts/rand.h
-  include/darts/sampling.h
-  include/darts/scene.h
-  include/darts/sphere.h
-  include/darts/stats.h
-  include/darts/surface.h
-  include/darts/surface_group.h
-  include/darts/test.h
-  include/darts/transform.h
-  src/camera.cpp
-  src/example_scenes.cpp
-  src/parser.cpp
-  src/scene.cpp
-  src/stats.cpp
-  src/materials/dielectric.cpp
-  src/materials/diffuse.cpp
-  src/materials/emission.cpp
-  src/materials/material.cpp
-  src/materials/metal.cpp
-  src/surfaces/quad.cpp
-  src/surfaces/sphere.cpp
-  src/surfaces/surface.cpp
-  src/surfaces/surface_group.cpp
-  src/tests/material_scatter_test.cpp
-  src/tests/test.cpp
-  # The files below are included in the PA0 basecode
   include/darts/array2d.h
   include/darts/common.h
   include/darts/fwd.h
@@ -109,19 +70,7 @@ add_executable(darts_tutorial0 src/darts_tutorial0.cpp)
 target_link_libraries(darts_tutorial0 PRIVATE darts_lib)
 add_test(NAME "Tutorial0" COMMAND darts_tutorial0)
 
-add_executable(darts_tutorial1 src/darts_tutorial1.cpp)
-target_link_libraries(darts_tutorial1 PRIVATE darts_lib)
 
-add_test(NAME "Tutorial1" COMMAND darts_tutorial1)
-
-add_executable(darts src/darts.cpp)
-target_link_libraries(darts PRIVATE darts_lib)
-
-add_executable(img_compare src/img_compare.cpp)
-target_link_libraries(img_compare PRIVATE darts_lib)
-
-add_executable(img_avg src/img_avg.cpp)
-target_link_libraries(img_avg PRIVATE darts_lib)
 
 
 
