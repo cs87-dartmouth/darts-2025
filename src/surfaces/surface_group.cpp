@@ -16,7 +16,7 @@ SurfaceGroup::SurfaceGroup(const json &j) : XformedSurface(j)
         for (auto &s : j["children"])
         {
             auto child = DartsFactory<Surface>::create(s);
-            child->add_to_parent(this, child, j);
+            child->add_to_parent(this, child, s);
         }
     }
 }

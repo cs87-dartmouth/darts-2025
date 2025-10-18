@@ -132,7 +132,11 @@ inline void from_json(const json &j, vec<T, N> &v)
 template <class T>
 inline void to_json(json &j, const mat<T, 4, 4> &v)
 {
-    j.at("matrix") = vector<T>(reinterpret_cast<const T *>(&v.x), reinterpret_cast<const T *>(&v.x) + 16);
+    // Write in row-major order to match the reading convention
+    std::vector<T> data(16);
+    for (int row = 0; row < 4; ++row)
+        for (int col = 0; col < 4; ++col) data[row * 4 + col] = v[col][row];
+    j["matrix"] = data;
 }
 
 /// Serialize a Vec3<N,T> to json
@@ -167,7 +171,11 @@ inline void from_json(const json &j, Transform &v)
 }
 
 /// Serialize a Transform to json
-inline void to_json(json &j, const Transform &t) { to_json(j, t.m); }
+inline void to_json(json &j, const Transform &t)
+{
+    j = json::object();
+    to_json(j, t.m);
+}
 
 /** @}*/
 

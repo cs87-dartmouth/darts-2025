@@ -89,7 +89,7 @@ void Scene::parse(const json &j)
         for (auto &s : j["surfaces"])
         {
             auto surface = DartsFactory<Surface>::create(s);
-            surface->add_to_parent(this, surface, j);
+            surface->add_to_parent(this, surface, s);
             surface->build(this); // in case this top-level surface is a group, build it now
             ++num_surfaces_created;
         }

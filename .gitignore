@@ -53,6 +53,7 @@ __pycache__
 /scenes/misc
 /scenes/meshes
 /scenes/assets
+/scenes/blender
 **.nvdb
 **.blend
 **.blend1
