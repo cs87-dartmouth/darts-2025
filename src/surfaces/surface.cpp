@@ -17,6 +17,7 @@ XformedSurfaceWithMaterial::XformedSurfaceWithMaterial(const json &j) : XformedS
     m_material = DartsFactory<Material>::find(j);
 }
 
+bool XformedSurfaceWithMaterial::is_emissive() const { return m_material && m_material->is_emissive(); }
 
 
 /**
